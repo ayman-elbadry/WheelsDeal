@@ -1,0 +1,41 @@
+#footer{
+    display: flex;
+    height: 160px;
+    border: solid 1px black;
+}
+#lef_footer{
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    height:140px;
+    align-items: center;
+    justify-content: space-between;
+    font-family: itim;
+}
+#lign{
+    border-top: solid 1px black;
+    width:70%;
+    margin-bottom: 3%;
+}
+#media{
+    display: flex;
+    justify-content: space-around;
+    width: 75%;
+    align-items: center;
+}
+#center_footer{
+    width: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    font-family: Jacques Francois;
+}
+#righ_footer{
+    width: 18%;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1%;
+    justify-content: flex-end;
+    font-family: itim;
+}
