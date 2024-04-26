@@ -1,12 +1,14 @@
 import React from 'react'
-import "../css/midle.css"
+import "../../css/midle.css"
+import { Link } from 'react-router-dom'
 export default function Midle() {
 return (
     <div id='G_Content'>
         <div id='T_Content'>
             <div id='titre'>
             <div style={{display:"inline"}}>Votre <span style={{color:"#1C6BBD" , display:"inline"}}>C</span>onfort est Notre <span style={{color:"#1C6BBD", display:"inline"}}>P</span>riorité</div>
-            <button id='B_t' style={{width:"400px" ,height:"70px"}}>Votre voiture est là</button>
+            <Link to={"/cars"}><button id='B_t' style={{width:"400px" ,height:"70px"}}>Votre voiture est là</button>
+            </Link>
             </div>
         </div>
         <div id='B_Content'>
