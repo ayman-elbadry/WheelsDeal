@@ -2,7 +2,7 @@ import { Container, Flex, VStack } from "@chakra-ui/react";
 import HomePageText from "../components/ui/home-page-text";
 import HomePageButton from "../components/ui/home-page-button";
 import HomePageImage from "../components/ui/home-page-image";
-import Footer from "../components/navbar/footer";
+import Footer from "../components/navbar/Footer";
 import Midle from "../components/ui/midle";
 
 function Home() {

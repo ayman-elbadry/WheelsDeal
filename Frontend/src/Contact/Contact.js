@@ -2,7 +2,7 @@ import React from 'react'
 import "./css/animate.css"
 import "./css/style.css"
 import "./css/bootstrap.min.css"
-
+import Footer from '../components/navbar/Footer'
 export default function Contact() {
   return (
 	<div>
@@ -14,7 +14,7 @@ export default function Contact() {
 					<div className="wrapper">
 						<div className="row no-gutters">
 							<div className="col-md-7 d-flex align-items-stretch">
-								<div className="contact-wrap w-100 p-md-5 p-4">
+								<div className="contact-wrap w-100  p-md-5 p-4" id='c_form'>
 									<h3 className="mb-4">Get in touch</h3>
 									<div id="form-message-warning" className="mb-4"></div> 
 				      				<div id="form-message-success" className="mb-4">
@@ -52,7 +52,7 @@ export default function Contact() {
 									</form>
 								</div>
 							</div>
-							<div className="col-md-5 d-flex align-items-stretch">
+							<div className="col-md-5 d-flex  align-items-stretch" id='c_form'>
 								<div className="info-wrap bg-primary w-100 p-lg-5 p-4">
 									<h3 className="mb-4 mt-md-4">Contact us</h3>
 				        	<div className="dbox w-100 d-flex align-items-start">
@@ -94,6 +94,7 @@ export default function Contact() {
 				</div>
 			</div>
 		</div>
+		<Footer />
 	</div>
   )
 }

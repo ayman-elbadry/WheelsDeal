@@ -7,11 +7,11 @@ import logo from "../../images/logo-removebg-preview (2).png"
 import starBleu from "../../images/Blue_star.svg"
 import starBlack from "../../images/Black_Star.png"
 import "../../css/footer.css"
+import { Link } from 'react-router-dom'
 
 
 
-
-export default function footer(){
+export default function Footer(){
     return (
       <div id='footer'>
         <div id='lef_footer'>
@@ -33,9 +33,11 @@ export default function footer(){
           © ® Copyright wheels deal Maroc 2023
           </p>
         </div>
+        <Link to="/admin/login">admin ?</Link>
         <div id='righ_footer'>
           <p>note :</p><img src={starBleu} alt='' style={{margin:"2%"}} width={20}/><img src={starBleu} style={{margin:"2%"}} width={20}/><img src={starBleu} style={{margin:"2%"}} width={20}/><img src={starBleu} style={{margin:"2%"}} width={20}/><img src={starBlack} style={{margin:"2%"}} width={20}/>
         </div>
+        
       </div>
     )
   }

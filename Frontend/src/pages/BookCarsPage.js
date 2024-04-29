@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/navbar/Navbar";
 import CarCard from "../components/ui/car-card";
-import Footer from "../components/navbar/footer";
+import Footer from "../components/navbar/Footer";
 import LoadingSpinner from "../components/ui/loading-spinner";
 import { useStateContext } from "../context/ContextProvider";
 

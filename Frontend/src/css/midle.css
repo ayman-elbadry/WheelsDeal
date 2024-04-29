@@ -38,8 +38,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10%;
-    margin-bottom: 10%;
 }
 #service{
     margin-top: 6%;
@@ -94,7 +92,4 @@
 option{
     background-color: white;
  
-}
-#Gheader{
-    position: fixed;
 }

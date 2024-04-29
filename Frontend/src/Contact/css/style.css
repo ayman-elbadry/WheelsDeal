@@ -4,6 +4,11 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+#c_form{
+  height:400px;
+  margin-top: 5%;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

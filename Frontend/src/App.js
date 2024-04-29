@@ -15,6 +15,7 @@ import Rents from "./admin/rents/Rents"
 import DashboardLogin from "./pages/DashboardLogin";
 import Header from "./components/navbar/Header";
 import Contact from "./Contact/Contact";
+import Footer from "./components/navbar/Footer";
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-
+      
     </BrowserRouter>
   );
 }
