@@ -13,19 +13,22 @@ import Users from "./admin/users/Users"
 import Cars from "./admin/cars/Cars"
 import Rents from "./admin/rents/Rents"
 import DashboardLogin from "./pages/DashboardLogin";
-
+import Header from "./components/navbar/Header";
+import Contact from "./Contact/Contact";
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Navbar>
+      {/* <Navbar>
         <NavbarLoginButtons />
-      </Navbar>
+      </Navbar> */}
+      <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="login" element={<Login />} />
+        <Route path="/ContactUs" element={<Contact />} />
         <Route path="/cars" element={<BookCars />} />
         <Route path="/cars/:id" element={<Rent />} />
         <Route path="/profile" element={<Profile />} />
@@ -37,6 +40,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+
     </BrowserRouter>
   );
 }

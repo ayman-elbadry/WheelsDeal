@@ -28,5 +28,4 @@ const SubCard = ({
     </div>
   );
 };
-
 export default SubCard;

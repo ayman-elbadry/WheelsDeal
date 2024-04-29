@@ -1,12 +1,12 @@
 import React from 'react'
-import facebook from "../images/facebook.png"
-import insta from "../images/instagram.png"
-import twitter from "../images/twitter.png"
-import whatsap from "../images/whatsapp.png"
-import logo from "../images/logo-removebg-preview (2).png"
-import starBleu from "../images/Blue_star.svg"
-import starBlack from "../images/Black_Star.png"
-import "../css/footer.css"
+import facebook from "../../images/facebook.png"
+import insta from "../../images/instagram.png"
+import twitter from "../../images/twitter.png"
+import whatsap from "../../images/whatsapp.png"
+import logo from "../../images/logo-removebg-preview (2).png"
+import starBleu from "../../images/Blue_star.svg"
+import starBlack from "../../images/Black_Star.png"
+import "../../css/footer.css"
 
 
 
