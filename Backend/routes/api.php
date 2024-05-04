@@ -99,3 +99,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // message :
 Route::apiResource('message', MessageController::class);
+Route::post('/message/{id}/reply', [MessageController::class, 'reply']);
+

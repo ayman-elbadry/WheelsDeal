@@ -96,7 +96,6 @@ export default function Header() {
                         className=" navbar navbar-expand-lg"
                         justifyContent={"space-between"}
                         alignItems={"center"}
-                        bg={"gray.600"}
                         p={4}
                         color={"white"}
                       >

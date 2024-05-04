@@ -30,15 +30,16 @@ export default function Messages() {
                 {messages.slice(0).reverse().map((message, index) => (
                     <>
                     {new Date(message.created_at).toLocaleString()}
-                    <li key={index} className="message-item">
-                        
-                        <Link to={`/dashboard/message/${message.id}`}>
+                    <Link to={`/dashboard/message/${message.id}`}>
+                        <li key={index} className="message-item">
                             <div className="message-content">
                                 <span className="message-email">{message.email}</span>
                                 <span className="message-text">{message.message}</span>
                             </div>
-                        </Link>
-                    </li></>
+                            
+                        </li>
+                    </Link>
+                    </>
                     
                 ))}
             </ul>

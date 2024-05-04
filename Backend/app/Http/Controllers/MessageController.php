@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
+use App\Mail\MessageReply;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -18,7 +20,19 @@ class MessageController extends Controller
         return response()->json(['success'=>true, 'data' => $messages],200);
 
     }
+    public function reply(Request $request, $id)
+    {
+        $message = Message::findOrFail($id);
+        if($request->response){
+            $response = $request->response;
+        } else {
+            $response = "Merci pour votre message. Nous avons bien reçu votre demande. Nous vous répondrons dans les plus brefs délais. Cordialement, l'équipe de WheelsDeal.";
+        }
+      
+        Mail::to($message->email)->send(new MessageReply($response));
 
+        return response()->json(['message' => 'Response sent successfully'], 200);
+    }
     /**
      * Show the form for creating a new resource.
      *
