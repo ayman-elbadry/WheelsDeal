@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\StripeController;
-
+use App\Http\Controllers\MessageController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -68,9 +68,9 @@ use App\Http\Controllers\StripeController;
     Route::post('/checkout/{id}', [StripeController::class, 'checkout']);
     Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
 
-   
-    
-   
+
+
+
 
 
 //! Protected Routes
@@ -83,15 +83,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/my-rents/edit/{id}', [RentController::class, 'editRent']);
     // update the user profile
     Route::put('/users/{id}', [UserController::class, 'update']);
-    // logout 
+    // logout
     Route::post('/logout', [UserController::class, 'logout']);
 
     //! admin auth
     Route::post('/admin/logout', [AdminController::class, 'logout']);
 
-    
+
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+// message :
+Route::apiResource('message', MessageController::class);

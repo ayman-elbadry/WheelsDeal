@@ -12,11 +12,11 @@ import NotFound from "./pages/NotFound";
 import Users from "./admin/users/Users"
 import Cars from "./admin/cars/Cars"
 import Rents from "./admin/rents/Rents"
+import Messages from "./admin/messages/Messages"
 import DashboardLogin from "./pages/DashboardLogin";
 import Header from "./components/navbar/Header";
 import Contact from "./Contact/Contact";
-import Footer from "./components/navbar/Footer";
-
+import MessageDetail from "./admin/messages/MessageDetail";
 function App() {
 
   return (
@@ -38,6 +38,10 @@ function App() {
           <Route index element={<Users />} />
           <Route path="/dashboard/cars" element={<Cars />} />
           <Route path="/dashboard/rents" element={<Rents />} />
+          <Route path="/dashboard/messages" element={<Messages />} />
+                <Route path="/dashboard/message/:id" element={<MessageDetail />} />
+          
+
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

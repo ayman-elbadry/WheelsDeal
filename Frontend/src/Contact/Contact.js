@@ -1,9 +1,37 @@
-import React from 'react'
+import React , {useState} from 'react'
 import "./css/animate.css"
 import "./css/style.css"
 import "./css/bootstrap.min.css"
 import Footer from '../components/navbar/Footer'
+import axios from 'axios'
 export default function Contact() {
+	const [user , setUser] = useState({
+		name: '',
+		email: '',
+		subject: '',
+		message: ''
+	})
+	function handleChange(e){
+		setUser({
+			...user,
+			[e.target.name]: e.target.value
+		})
+	}
+	function handleSubmit(e){
+		e.preventDefault()
+		const send =async ()=>{
+			try {
+				const response = await axios.post('http://127.0.0.1:8000/api/message', user);
+				console.log(response.data); // Affiche la réponse du serveur
+				// Gérer la réponse, par exemple en informant l'utilisateur que le message a été envoyé
+			} catch (error) {
+				console.error("Erreur lors de l'envoi du message :", error);
+				// Gérer l'erreur, par exemple en informant l'utilisateur de l'échec de l'envoi
+			}
+		}
+		send()
+		
+	}
   return (
 	<div>
 	  <div className="container">
@@ -20,26 +48,26 @@ export default function Contact() {
 				      				<div id="form-message-success" className="mb-4">
 				            		Your message was sent, thank you!
 				      			</div>
-									<form method="POST" id="contactForm" name="contactForm">
-										<div classNameName="row">
+									<form method="POST" id="contactForm" onSubmit={handleSubmit} name="contactForm">
+										<div className="row">
 											<div className="col-md-6">
 												<div className="form-group">
-													<input type="text" className="form-control" name="name" id="name" placeholder="Name"/>
+													<input type="text" onChange= {(e)=> handleChange(e) } className="form-control" name="name" value={user.name} id="name" placeholder="Name"/>
 												</div>
 											</div>
 											<div className="col-md-6"> 
 												<div className="form-group">
-													<input type="email" className="form-control" name="email" id="email" placeholder="Email"/>
+													<input type="email" className="form-control" onChange= {(e)=> handleChange(e) } name="email" value={user.email} id="email" placeholder="Email"/>
 												</div>
 											</div>
 											<div className="col-md-12">
 												<div className="form-group">
-													<input type="text" className="form-control" name="subject" id="subject" placeholder="Subject"/>
+													<input type="text" className="form-control" onChange= {(e)=> handleChange(e) } name="subject" value={user.subject} id="subject" placeholder="Subject"/>
 												</div>
 											</div>
 											<div className="col-md-12">
 												<div className="form-group">
-													<textarea name="message" className="form-control" id="message" cols="30" rows="7" placeholder="Message"></textarea>
+												<textarea name="message" onChange= {(e)=> handleChange(e) } className="form-control" id="message" cols="30" rows="7" placeholder="Message" value={user.message}></textarea>
 												</div>
 											</div>
 											<div className="col-md-12">
@@ -79,14 +107,14 @@ export default function Contact() {
 					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
 					          </div>
 				          </div>
-				        	<div className="dbox w-100 d-flex align-items-center">
-				        		<div className="icon d-flex align-items-center justify-content-center">
-				        			<span className="fa fa-globe"></span>
-				        		</div>
-				        		<div className="text pl-3">
-					            <p><span>Website</span> <a href="#">yoursite.com</a></p>
-					          </div>
-				          </div>
+				<div className="dbox w-100 d-flex align-items-center">
+					<div className="icon d-flex align-items-center justify-content-center">
+						<span className="fa fa-globe"></span>
+					</div>
+					<div className="text pl-3">
+						<p><span>Website</span> <a href="https://yoursite.com">yoursite.com</a></p>
+					</div>
+				</div>
 			          </div>
 							</div>
 						</div>
@@ -98,8 +126,3 @@ export default function Contact() {
 	</div>
   )
 }
-
-
-
-
-

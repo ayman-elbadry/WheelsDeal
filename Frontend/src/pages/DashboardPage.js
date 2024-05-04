@@ -60,6 +60,16 @@ function Dashboard() {
             >
               Rents
             </ListItem>
+            <ListItem
+              transition="all 0.2s"
+              borderRadius="md"
+              p={2}
+                 cursor="pointer"
+              _hover={{ bg: "gray.500" }}
+              onClick={()=>navigate('/dashboard/messages')}
+            >
+              Messages
+            </ListItem>
           </List>
         </Box>
         <Box h={"full"} w={'84%'}>

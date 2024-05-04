@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rent;
-use Illuminate\Http\Request;
 use PDF;
+use Illuminate\Http\Request;
+
 class RentController extends Controller
 {
     /**
@@ -41,7 +42,7 @@ class RentController extends Controller
 
         return $results;
 
-     
+
     }
 
     /**
@@ -109,7 +110,7 @@ class RentController extends Controller
         $rent->update($fields);
 
         return $rent;
-        
+
 
     }
 
@@ -161,7 +162,7 @@ class RentController extends Controller
 
 
     /**
-     * Show form to edit a rent 
+     * Show form to edit a rent
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -170,14 +171,14 @@ class RentController extends Controller
     {
         // Assuming the $id parameter is the user ID
         $rent = Rent::find($id);
-  
+
         $obj  = [
             'id' => $rent->id,
             'brand' => $rent->cars->brand,
             'rental_date' => $rent->rental_date,
             'return_date' => $rent->return_date,
         ];
-  
+
         return $obj;
     }
 
