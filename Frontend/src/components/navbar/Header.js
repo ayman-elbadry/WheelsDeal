@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import logo from '../../images/logo-removebg-preview (2).png';
 import '../../css/header.css';
 import icon from "../../images/arrow-down-sign-to-navigate.png";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate , NavLink } from 'react-router-dom';
 import { useStateContext } from "../../context/ContextProvider";
 import { MdAccountCircle, MdLogout } from "react-icons/md";
 import { HStack, Button , Box , Flex , Spacer } from "@chakra-ui/react";
@@ -59,16 +59,15 @@ export default function Header() {
                 <div className="logo">
                     <img id='logo' src={logo} alt="" />
                 </div>
-                <nav>
-                    <ul>
-                        <li><Link to='/' style={{color:'white'}}>Accueil</Link></li>
-                        <li><Link to='/cars'>Voitures</Link></li>
-                        <li>
-                            <Link to='/Location'>Réservation</Link>
-                        </li>
-                        <li><Link to='/ContactUs'>Contacter-nous</Link></li>
-                    </ul>
-                </nav>
+
+<nav>
+    <ul>
+        <li><NavLink exact to='/' activeClassName="selected">Accueil</NavLink></li>
+        <li><NavLink to='/cars' activeClassName="selected">Voitures</NavLink></li>
+        <li><NavLink to='/Location' activeClassName="selected">Réservation</NavLink></li>
+        <li><NavLink to='/ContactUs' activeClassName="selected">Contacter-nous</NavLink></li>
+    </ul>
+</nav>
                 <div className="login-buttons d-flex align-items-center">
                     {token ? (<HStack position={"absolute"} right={0} top={3}>
                             <Button

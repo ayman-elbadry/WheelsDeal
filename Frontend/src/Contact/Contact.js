@@ -43,7 +43,7 @@ export default function Contact() {
 						<div className="row no-gutters">
 							<div className="col-md-7 d-flex align-items-stretch">
 								<div className="contact-wrap w-100  p-md-5 p-4" id='c_form'>
-									<h3 className="mb-4">Get in touch</h3>
+									
 									<div id="form-message-warning" className="mb-4"></div> 
 				      				<div id="form-message-success" className="mb-4">
 				            		Your message was sent, thank you!
@@ -88,7 +88,7 @@ export default function Contact() {
 				        			<span className="fa fa-map-marker"></span>
 				        		</div>
 				        		<div className="text pl-3">
-					            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+					            <p><span>Address:</span> 198 West 21th Street, Suite 721 Maarif</p>
 					          </div>
 				          </div>
 				        	<div className="dbox w-100 d-flex align-items-center">
@@ -96,7 +96,7 @@ export default function Contact() {
 				        			<span className="fa fa-phone"></span>
 				        		</div>
 				        		<div className="text pl-3">
-					            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+					            <p><span>Phone:</span> + 1235 2355 98</p>
 					          </div>
 				          </div>
 				        	<div className="dbox w-100 d-flex align-items-center">
@@ -104,7 +104,7 @@ export default function Contact() {
 				        			<span className="fa fa-paper-plane"></span>
 				        		</div>
 				        		<div className="text pl-3">
-					            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+					            <p><span>Email:</span>wheelsdeal4you@gmail.com</p>
 					          </div>
 				          </div>
 				<div className="dbox w-100 d-flex align-items-center">
@@ -112,7 +112,7 @@ export default function Contact() {
 						<span className="fa fa-globe"></span>
 					</div>
 					<div className="text pl-3">
-						<p><span>Website</span> <a href="https://yoursite.com">yoursite.com</a></p>
+						<p><span>Website</span> <a href="https://WheelsDeal.com">WheelsDeal.com</a></p>
 					</div>
 				</div>
 			          </div>

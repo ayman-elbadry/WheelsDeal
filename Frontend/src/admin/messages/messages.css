@@ -54,3 +54,21 @@
 .message-detail-item strong {
     margin-right: 5px;
 }
+.message-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.message-email {
+    font-weight: bold;
+}
+
+.email-label {
+    color: #555;
+}
+
+.message-text {
+    margin-top: 5px;
+}

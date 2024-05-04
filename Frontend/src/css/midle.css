@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 #G_Content{
     display: flex;
     flex-direction: column;
@@ -6,7 +8,7 @@
 }
 #T_Content{
     display: flex;
-    height: 750px;
+    height: 550px;
     background-image: url(../images/acuille_video.gif);
     background-size: cover;
 

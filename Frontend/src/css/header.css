@@ -8,7 +8,9 @@
 #header{
   height: 80px;
 }
-
+.selected {
+  color: white;
+}
 #Gheader {
   
     height: 80px;

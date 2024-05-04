@@ -26,12 +26,33 @@ class MessageController extends Controller
         if($request->response){
             $response = $request->response;
         } else {
-            $response = "Merci pour votre message. Nous avons bien reçu votre demande. Nous vous répondrons dans les plus brefs délais. Cordialement, l'équipe de WheelsDeal.";
+            $response = "Merci pour votre message. Nous avons bien reçu
+             votre demande. Nous vous répondrons dans les plus brefs délais.
+              Cordialement, l'équipe de WheelsDeal.";
         }
-      
+
         Mail::to($message->email)->send(new MessageReply($response));
 
         return response()->json(['message' => 'Response sent successfully'], 200);
+    }
+    public function sendEmail(Request $request)
+    {
+        if($request->response){
+            $response = $request->response;
+        } else {
+            $response = "Merci pour votre message. Nous avons bien reçu
+             votre demande. Nous vous répondrons dans les plus brefs délais.
+              Cordialement, l'équipe de WheelsDeal.";
+        }
+
+        $selectedMessageIds = $request->selectedMessages;
+        $messages = Message::whereIn('id', $selectedMessageIds)->get();
+
+        foreach ($messages as $message) {
+            Mail::to($message->email)->send(new MessageReply($response));
+        }
+
+        return response()->json(['message' => 'Email sent successfully'], 200);
     }
     /**
      * Show the form for creating a new resource.
