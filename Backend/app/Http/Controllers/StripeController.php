@@ -11,7 +11,6 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class StripeController extends Controller
 {
- 
     public function checkout($id)
     {
         $rents = Rent::where('user_id', $id)->orderBy('id', 'desc')->get();
@@ -39,7 +38,7 @@ class StripeController extends Controller
 
         return $checkout_session->url;
     }
-    
+
     public function success(Request $request)
     {
         // \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
@@ -57,10 +56,10 @@ class StripeController extends Controller
         //     throw new NotFoundHttpException();
         // }
 
-        
+
         return view('checkout.success');
 
-     
+
     }
 
 

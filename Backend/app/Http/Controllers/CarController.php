@@ -12,18 +12,18 @@ class CarController extends Controller
     public function index()
     {
         $cars = DB::table('cars')->get();
-        return response()->json(['success'=>true, 'data' => $cars],200);
+        return response()->json(['success' => true, 'data' => $cars], 200);
     }
 
     public function show($id)
     {
         $car = DB::table('cars')->where('id', $id)->get();
-        return response()->json(['success'=>true, 'data' => $car],200);
+        return response()->json(['success' => true, 'data' => $car], 200);
     }
 
 
 
-     public function store(Request $request)
+    public function store(Request $request)
     {
         // Validate the request data including file validation
         $validatedData = $request->validate([
@@ -67,15 +67,15 @@ class CarController extends Controller
         $car->save();
 
         // Return a response or redirect as desired
-        return response($car,200);
+        return response($car, 200);
     }
 
 
     // update a car info
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $car = Car::find($id);
-        if(!$car){
+        if(!$car) {
             $res =  ['message' => 'id car not found'];
             return response($res, 402);
         }
@@ -103,9 +103,9 @@ class CarController extends Controller
 
 
 
-        if($validatedData['available'] == 'true'){
+        if($validatedData['available'] == 'true') {
             $validatedData['available'] = 1;
-        }else{
+        } else {
             $validatedData['available'] = 0;
         }
 
@@ -117,11 +117,12 @@ class CarController extends Controller
         return response($car, 200);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $car = Car::find($id);
-        if(!$car){
+        if(!$car) {
             $res =  ['message' => 'id car not found'];
-            return response($res,402);
+            return response($res, 402);
         }
 
         return $car->delete();

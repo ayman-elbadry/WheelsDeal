@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Car extends Model
 {
+    use HasFactory;
     public $timestamps = false;
     protected $fillable = [
         'brand',
@@ -18,5 +19,4 @@ class Car extends Model
         'photo1',
         'photo2',
     ];
-    use HasFactory;
 }

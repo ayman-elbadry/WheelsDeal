@@ -1,15 +1,11 @@
-import { Container, Flex, VStack } from "@chakra-ui/react";
-import HomePageText from "../components/ui/home-page-text";
-import HomePageButton from "../components/ui/home-page-button";
-import HomePageImage from "../components/ui/home-page-image";
-import Footer from "../components/navbar/Footer";
-import Midle from "../components/ui/midle";
+import { Container, Flex, VStack } from '@chakra-ui/react'
+import HomePageText from '../components/ui/home-page-text'
+import HomePageButton from '../components/ui/home-page-button'
+import HomePageImage from '../components/ui/home-page-image'
+import Footer from '../components/navbar/Footer'
+import Midle from '../components/ui/midle'
 
-function Home() {
-
-
-
-
+function Home () {
   return (
     <>
       {/* <Container overflow="hidden" maxWidth="1720px" px={[12, 8, 8]}>
@@ -27,10 +23,10 @@ function Home() {
           <HomePageImage />
         </Flex>
       </Container> */}
-      <Midle/>
+      <Midle />
       <Footer />
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home

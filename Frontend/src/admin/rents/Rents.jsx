@@ -10,62 +10,61 @@ import {
   Input,
   InputGroup,
   InputRightElement,
-  IconButton,
-} from "@chakra-ui/react";
-import { SearchIcon, UpDownIcon, ArrowUpIcon } from "@chakra-ui/icons";
-import { useState, useEffect } from "react";
-import axiosClient from "../../context/axiosClient";
-import LoadingSpinner from "../../components/ui/loading-spinner";
-import RentItem from "./RentItem";
-
+  IconButton
+} from '@chakra-ui/react'
+import { SearchIcon, UpDownIcon, ArrowUpIcon } from '@chakra-ui/icons'
+import { useState, useEffect } from 'react'
+import axiosClient from '../../context/axiosClient'
+import LoadingSpinner from '../../components/ui/loading-spinner'
+import RentItem from './RentItem'
 
 const Rents = () => {
-  const [rents, setrents] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [ascPrice , setAscPrice] = useState(false)
-  const [ascReturnDate , setascReturnDate] = useState(false)
+  const [rents, setrents] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [search, setSearch] = useState('')
+  const [ascPrice, setAscPrice] = useState(false)
+  const [ascReturnDate, setascReturnDate] = useState(false)
 
   useEffect(() => {
     const fetchrents = async () => {
-      const { data } = await axiosClient.get("http://127.0.0.1:8000/api/rents");
-      setLoading(false);
-      setrents(data);
-    };
-    fetchrents();
-  }, []);
+      const { data } = await axiosClient.get('http://127.0.0.1:8000/api/rents')
+      setLoading(false)
+      setrents(data)
+    }
+    fetchrents()
+  }, [])
 
   // Sort the data array in ascending/ descending order by total price
-  useEffect(()=>{
-       if (ascPrice) {
-         const sortedData = [...rents].sort((a, b) => a.total - b.total);
-         setrents(sortedData);
-       } else {
-         const sortedData = [...rents].sort((a, b) => b.total - a.total);
-         setrents(sortedData);
-       }
-  },[ascPrice]) 
-  
+  useEffect(() => {
+    if (ascPrice) {
+      const sortedData = [...rents].sort((a, b) => a.total - b.total)
+      setrents(sortedData)
+    } else {
+      const sortedData = [...rents].sort((a, b) => b.total - a.total)
+      setrents(sortedData)
+    }
+  }, [ascPrice])
+
   // Sort the data array in ascending/ descending order by return date
   useEffect(() => {
     if (ascReturnDate) {
       const sortedData = [...rents].sort(
         (a, b) => new Date(a.return_date) - new Date(b.return_date)
-      );
-      setrents(sortedData);
+      )
+      setrents(sortedData)
     } else {
       const sortedData = [...rents].sort(
         (a, b) => new Date(b.return_date) - new Date(a.return_date)
-      );
-      setrents(sortedData);
+      )
+      setrents(sortedData)
     }
-  }, [ascReturnDate]);
+  }, [ascReturnDate])
 
-  if (loading) return <LoadingSpinner />;
+  if (loading) return <LoadingSpinner />
 
   return (
     <TableContainer p={10}>
-      <Flex justify="end" py={2} mb={4}>
+      <Flex justify='end' py={2} mb={4}>
         {/* <Button
           colorScheme="blue"
           leftIcon={<ArrowUpIcon />}
@@ -73,20 +72,20 @@ const Rents = () => {
         >
           Export Excel
         </Button> */}
-        <InputGroup w="300px">
+        <InputGroup w='300px'>
           <Input
-            type="text"
+            type='text'
             value={search}
-            placeholder="Search for rents"
+            placeholder='Search for rents'
             onChange={(e) => setSearch(e.target.value.toLocaleLowerCase())}
           />
-          <InputRightElement pointerEvents="none">
-            <SearchIcon color="gray.400" />
+          <InputRightElement pointerEvents='none'>
+            <SearchIcon color='gray.400' />
           </InputRightElement>
         </InputGroup>
       </Flex>
 
-      <Table variant="striped">
+      <Table variant='striped'>
         <Thead>
           <Tr>
             <Th>id</Th>
@@ -100,7 +99,7 @@ const Rents = () => {
               return date
               <IconButton
                 ml={2}
-                aria-label="order_price"
+                aria-label='order_price'
                 icon={<UpDownIcon />}
                 onClick={() => setascReturnDate(!ascReturnDate)}
               />
@@ -109,12 +108,12 @@ const Rents = () => {
               total
               <IconButton
                 ml={2}
-                aria-label="order_price"
+                aria-label='order_price'
                 icon={<UpDownIcon />}
                 onClick={() => setAscPrice(!ascPrice)}
               />
             </Th>
-            <Th></Th>
+            <Th />
           </Tr>
         </Thead>
         <Tbody>
@@ -136,7 +135,7 @@ const Rents = () => {
         </Tbody>
       </Table>
     </TableContainer>
-  );
-};
+  )
+}
 
-export default Rents;
+export default Rents

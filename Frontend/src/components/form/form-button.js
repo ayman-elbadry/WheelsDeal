@@ -1,11 +1,11 @@
-const FormButton = ({ bgColor = "", btnText }) => {
+const FormButton = ({ bgColor = '', btnText }) => {
   return (
-    <div className="form-group">
-      <button type="submit" className={bgColor + " form-btn-primary"}>
+    <div className='form-group'>
+      <button type='submit' className={bgColor + ' form-btn-primary'}>
         {btnText}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default FormButton;
+export default FormButton

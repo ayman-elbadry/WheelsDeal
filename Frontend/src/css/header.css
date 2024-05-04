@@ -1,94 +1,87 @@
-*{
-    margin: 0;
+* {
+  margin: 0;
 }
-#logo{
-    width: 20%;
+#logo {
+  width: 20%;
 }
 
-#header{
+#header {
   height: 80px;
 }
 .selected {
   color: white;
 }
 #Gheader {
-  
-    height: 80px;
-    display: flex;
-    align-items: center;
-    background-color: #559EE8;
-    width: 100%;
-  }
-nav{
- 
-    width: 60%;
-    display: flex;
-    justify-content: flex-start;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #559ee8;
+  width: 100%;
+}
+nav {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
 }
 nav ul {
-    display: flex;
-    justify-content: center;
-    width: auto;
-  }
-li{
-    margin-left: 60px;
-    list-style-type: none;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family:'Roboto Mono', monospace;
-   
-  }
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+li {
+  margin-left: 60px;
+  list-style-type: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+}
 nav a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
- 
-  }
- 
- 
- 
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
 .login {
-    background-color: #1C6BBD;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px;
-    width: 100px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: itim;
-  }
- 
-select{
-    width: 20px;
+  background-color: #1c6bbd;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: itim;
 }
-#logo{
-    width: 150px;
-    height: 100px;
+
+select {
+  width: 20px;
 }
-nav{
-    display: flex;
-    margin-left: 0%;
+#logo {
+  width: 150px;
+  height: 100px;
 }
-#select_icon{
+nav {
+  display: flex;
+  margin-left: 0%;
+}
+#select_icon {
   width: 95px;
   height: 68px;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #1C6BBD;
+  background-color: #1c6bbd;
   border-radius: 10px;
   top: 8%;
   right: 41%;
   text-align: center;
   font-family: itim;
   visibility: hidden;
- 
 }
-a{
+a {
   text-decoration: none;
   color: #ffffff;
 }

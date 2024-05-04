@@ -9,7 +9,8 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Model
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens;
+    use Notifiable;
     public $timestamps = false;
     protected $fillable = [
         'username',

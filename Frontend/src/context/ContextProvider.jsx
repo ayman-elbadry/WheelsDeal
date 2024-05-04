@@ -1,10 +1,5 @@
-import {createContext, useContext, useState} from "react";
-import Cookies from "universal-cookie";
-
-
-
-
-
+import { createContext, useContext, useState } from 'react'
+import Cookies from 'universal-cookie'
 
 const StateContext = createContext({
   currentUser: null,
@@ -12,55 +7,50 @@ const StateContext = createContext({
   notification: null,
   setUser: () => {},
   setToken: () => {},
-  setAdminToken:() =>{}
+  setAdminToken: () => {}
 })
 
+export const ContextProvider = ({ children }) => {
+  const [user, setUser] = useState({})
+  const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'))
+  const [adminToken, _setAdminToken] = useState(
+    localStorage.getItem('ADMIN_TOKEN')
+  )
 
-export const ContextProvider = ({children}) => {
-  
+  console.log('admin-cookies', adminToken)
 
-  const [user, setUser] = useState({});
-  const [token, _setToken] = useState(localStorage.getItem('ACCESS_TOKEN'));
-  const [adminToken, _setAdminToken] = useState(localStorage.getItem('ADMIN_TOKEN'));
-
-
-  console.log('admin-cookies',adminToken)
-
-
-    const setAdminToken = (token) => {
-      _setAdminToken(token);
-      if (token) {
-        localStorage.setItem("ADMIN_TOKEN", token);
-      } else {
-        localStorage.removeItem("ADMIN_TOKEN");
-      }
-    };
-
+  const setAdminToken = (token) => {
+    _setAdminToken(token)
+    if (token) {
+      localStorage.setItem('ADMIN_TOKEN', token)
+    } else {
+      localStorage.removeItem('ADMIN_TOKEN')
+    }
+  }
 
   const setToken = (token) => {
     _setToken(token)
     if (token) {
-      localStorage.setItem('ACCESS_TOKEN', token);
+      localStorage.setItem('ACCESS_TOKEN', token)
     } else {
-      localStorage.removeItem('ACCESS_TOKEN');
+      localStorage.removeItem('ACCESS_TOKEN')
     }
   }
 
-
-
-
   return (
-    <StateContext.Provider value={{
-      user,
-      setUser,
-      token,
-      setToken,
-      adminToken,
-      setAdminToken
-    }}>
+    <StateContext.Provider
+      value={{
+        user,
+        setUser,
+        token,
+        setToken,
+        adminToken,
+        setAdminToken
+      }}
+    >
       {children}
     </StateContext.Provider>
-  );
+  )
 }
 
-export const useStateContext = () => useContext(StateContext);
+export const useStateContext = () => useContext(StateContext)

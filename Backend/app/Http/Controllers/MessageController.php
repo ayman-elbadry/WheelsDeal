@@ -17,13 +17,13 @@ class MessageController extends Controller
     public function index()
     {
         $messages = Message::all();
-        return response()->json(['success'=>true, 'data' => $messages],200);
+        return response()->json(['success' => true, 'data' => $messages], 200);
 
     }
     public function reply(Request $request, $id)
     {
         $message = Message::findOrFail($id);
-        if($request->response){
+        if($request->response) {
             $response = $request->response;
         } else {
             $response = "Merci pour votre message. Nous avons bien reçu
@@ -37,7 +37,7 @@ class MessageController extends Controller
     }
     public function sendEmail(Request $request)
     {
-        if($request->response){
+        if($request->response) {
             $response = $request->response;
         } else {
             $response = "Merci pour votre message. Nous avons bien reçu
@@ -86,7 +86,7 @@ class MessageController extends Controller
         // Save the message
         $message->save();
 
-        return response()->json(['success'=>true, 'data' => $message],200);
+        return response()->json(['success' => true, 'data' => $message], 200);
     }
 
     /**
@@ -97,7 +97,7 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        return response()->json(['success'=>true, 'data' => $message],200);
+        return response()->json(['success' => true, 'data' => $message], 200);
     }
 
     /**
@@ -133,7 +133,7 @@ class MessageController extends Controller
         // Save the message
         $message->save();
 
-        return response()->json(['success'=>true, 'data' => $message],200);
+        return response()->json(['success' => true, 'data' => $message], 200);
     }
 
     /**
@@ -147,6 +147,6 @@ class MessageController extends Controller
         // Delete the message
         $message->delete();
 
-        return response()->json(['success'=>true, 'data' => $message],200);
+        return response()->json(['success' => true, 'data' => $message], 200);
     }
 }

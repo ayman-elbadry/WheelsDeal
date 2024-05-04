@@ -1,74 +1,69 @@
-import { useToast } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
-import FormButton from "./form-button";
-import FormInput from "./form-input";
-import axiosClient from "../../context/axiosClient";
-import { useStateContext } from "../../context/ContextProvider";
+import { useToast } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
+import FormButton from './form-button'
+import FormInput from './form-input'
+import axiosClient from '../../context/axiosClient'
+import { useStateContext } from '../../context/ContextProvider'
 
 const LoginForm = () => {
+  const { setUser, setToken } = useStateContext()
 
-
-  const {setUser , setToken} = useStateContext()
-
-  const navigate = useNavigate();
-  const toast = useToast();
-  const toastMessage = (message, type = "error", title = "Error occured.") => {
+  const navigate = useNavigate()
+  const toast = useToast()
+  const toastMessage = (message, type = 'error', title = 'Error occured.') => {
     return toast({
-      title: title,
+      title,
       description: message,
       status: type,
       duration: 4000,
-      isClosable: true,
-    });
-  };
+      isClosable: true
+    })
+  }
 
-  const email = useRef();
-  const password = useRef();
+  const email = useRef()
+  const password = useRef()
 
-  function Login(e) {
-    e.preventDefault();
+  function Login (e) {
+    e.preventDefault()
 
-    if (!email.current.value || !password.current.value){
+    if (!email.current.value || !password.current.value) {
       return toastMessage(
-          "email and password are required",
-          "error",
-          "empty fields"
-        ); 
+        'email and password are required',
+        'error',
+        'empty fields'
+      )
     }
 
     const payload = {
       email: email.current.value,
-      password: password.current.value,
+      password: password.current.value
     }
-    
-     axiosClient.post("http://127.0.0.1:8000/api/login",payload)
-      .then(({data}) => {
+
+    axiosClient
+      .post('http://127.0.0.1:8000/api/login', payload)
+      .then(({ data }) => {
         console.log(data)
         setUser(data.user)
         setToken(data.token)
-        toastMessage(
-          "Welcome in your website",
-          "success",
-          "Login success"
-        ); 
-        navigate("/cars");
+        toastMessage('Welcome in your website', 'success', 'Login success')
+        navigate('/cars')
       })
       .catch((error) => {
         toastMessage(error.response.data.message)
-      });
+      })
   }
 
   return (
-    <div className="col-md-6 col-lg-6 p-md-5 px-4 py-5">
+    <div className='col-md-6 col-lg-6 p-md-5 px-4 py-5'>
       <form onSubmit={Login}>
-        <FormInput name="email" type="email" refe={email} />
-        <FormInput name="password" type="password" refe={password} />
+        <FormInput name='email' type='email' refe={email} />
+        <FormInput name='password' type='password' refe={password} />
 
-        <FormButton bgColor="btn-primary" btnText="Log in" />
+        <FormButton bgColor='btn-primary' btnText='Log in' />
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginForm;
+export default LoginForm

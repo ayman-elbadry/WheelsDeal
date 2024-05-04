@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import {
   Button,
   Modal,
@@ -12,72 +12,64 @@ import {
   FormLabel,
   Input,
   Select
-} from '@chakra-ui/react';
-import axiosClient from "../../context/axiosClient"
+} from '@chakra-ui/react'
+import axiosClient from '../../context/axiosClient'
 
-
-function AddCar({isOpen , setisOpen,cars, setcars}) {
-
-    
-
+function AddCar ({ isOpen, setisOpen, cars, setcars }) {
   const [carData, setCarData] = useState({
-    brand: "",
-    model: "",
-    fuelType: "",
-    price: "",
-    gearbox: "",
+    brand: '',
+    model: '',
+    fuelType: '',
+    price: '',
+    gearbox: '',
     available: false,
     frontPhoto: null,
-    backPhoto: null,
-  });
-
+    backPhoto: null
+  })
 
   const handleClose = () => {
-    setisOpen(false);
-  };
+    setisOpen(false)
+  }
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCarData((prevData) => ({ ...prevData, [name]: value }));
-  };
+    const { name, value } = e.target
+    setCarData((prevData) => ({ ...prevData, [name]: value }))
+  }
 
   const handleFileChange = (e, type) => {
-    const file = e.target.files[0];
-    setCarData((prevData) => ({ ...prevData, [type]: file }));
-  };
+    const file = e.target.files[0]
+    setCarData((prevData) => ({ ...prevData, [type]: file }))
+  }
 
   const handleAddCar = async () => {
     // Perform the necessary logic to add the car using carData
 
-    console.log("car:", carData);
+    console.log('car:', carData)
 
-    if(!carData){
+    if (!carData) {
       console.log('required fields')
       return
     }
 
-    try{
+    try {
       const { data } = await axiosClient.post(
-        "http://127.0.0.1:8000/api/cars",
+        'http://127.0.0.1:8000/api/cars',
         carData,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      );
+      )
       console.log(data)
-      setcars([...cars,data])
-    
-    }catch(e){
+      setcars([...cars, data])
+    } catch (e) {
       alert('error happen')
       // console.error(e)
-
     }
 
-    setisOpen(false);
-    
-  };
+    setisOpen(false)
+  }
 
   return (
     <>
@@ -90,70 +82,70 @@ function AddCar({isOpen , setisOpen,cars, setcars}) {
             <FormControl mb={4}>
               <FormLabel>Brand</FormLabel>
               <Input
-                type="text"
-                name="brand"
+                type='text'
+                name='brand'
                 value={carData.brand}
                 onChange={handleChange}
-                placeholder="Enter Brand"
+                placeholder='Enter Brand'
               />
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Model</FormLabel>
               <Input
-                type="text"
-                name="model"
+                type='text'
+                name='model'
                 value={carData.model}
                 onChange={handleChange}
-                placeholder="Enter Model"
+                placeholder='Enter Model'
               />
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Fuel Type</FormLabel>
               <Select
-                name="fuelType"
+                name='fuelType'
                 value={carData.fuelType}
                 onChange={handleChange}
-                placeholder="Select Fuel Type"
+                placeholder='Select Fuel Type'
               >
-                <option value="gas">Gas</option>
-                <option value="diesel">Diesel</option>
-                <option value="electric">Electric</option>
+                <option value='gas'>Gas</option>
+                <option value='diesel'>Diesel</option>
+                <option value='electric'>Electric</option>
               </Select>
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Price</FormLabel>
               <Input
-                type="number"
-                name="price"
+                type='number'
+                name='price'
                 value={carData.price}
                 onChange={handleChange}
-                placeholder="Enter Price"
+                placeholder='Enter Price'
               />
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Gearbox</FormLabel>
               <Input
-                type="text"
-                name="gearbox"
+                type='text'
+                name='gearbox'
                 value={carData.gearbox}
                 onChange={handleChange}
-                placeholder="Enter Gearbox"
+                placeholder='Enter Gearbox'
               />
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Availability</FormLabel>
               <Select
-                name="available"
+                name='available'
                 value={carData.available}
                 onChange={handleChange}
-                placeholder="Select Availability"
+                placeholder='Select Availability'
               >
-                <option value={true}>Available</option>
+                <option value>Available</option>
                 <option value={false}>Not Available</option>
               </Select>
             </FormControl>
@@ -161,37 +153,35 @@ function AddCar({isOpen , setisOpen,cars, setcars}) {
             <FormControl mb={4}>
               <FormLabel>Front Photo</FormLabel>
               <Input
-                type="file"
-                name="frontPhoto"
-                accept="image/*"
-                onChange={(e) => handleFileChange(e, "frontPhoto")}
+                type='file'
+                name='frontPhoto'
+                accept='image/*'
+                onChange={(e) => handleFileChange(e, 'frontPhoto')}
               />
             </FormControl>
 
             <FormControl mb={4}>
               <FormLabel>Back Photo</FormLabel>
               <Input
-                type="file"
-                name="backPhoto"
-                accept="image/*"
-                onChange={(e) => handleFileChange(e, "backPhoto")}
+                type='file'
+                name='backPhoto'
+                accept='image/*'
+                onChange={(e) => handleFileChange(e, 'backPhoto')}
               />
             </FormControl>
           </ModalBody>
           <ModalFooter>
-            <Button variant="ghost" onClick={handleClose}>
+            <Button variant='ghost' onClick={handleClose}>
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={handleAddCar}>
+            <Button colorScheme='blue' onClick={handleAddCar}>
               Add Car
             </Button>
           </ModalFooter>
-           
         </ModalContent>
       </Modal>
     </>
-  );
+  )
 }
 
-export default AddCar;
-
+export default AddCar

@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
-
 class AdminController extends Controller
 {
     public function signup(Request $request)

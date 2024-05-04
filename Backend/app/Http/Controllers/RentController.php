@@ -102,7 +102,7 @@ class RentController extends Controller
             'user_id' => 'required|exists:users,id',
             'car_id' => 'required|exists:cars,id',
         ]);
-        if(!$fields){
+        if(!$fields) {
             return ['message' => 'not valid fields to update'];
         }
 
@@ -141,7 +141,7 @@ class RentController extends Controller
         // Assuming the $id parameter is the user ID
         $rents = Rent::where('user_id', $id)->orderBy('id', 'desc')->get();
         $results = [];
-        foreach($rents as $rent){
+        foreach($rents as $rent) {
             $obj  = [
                 'id' => $rent->id,
                 'car_id' => $rent->cars->id,
@@ -215,7 +215,7 @@ class RentController extends Controller
         $filename = ''.$rent->user->firstname.'_rent_facture.pdf';
 
         // Download the PDF file
-            return response($pdf->output(), 200)
+        return response($pdf->output(), 200)
         ->header('Content-Type', 'application/pdf')
         ->header('Content-Disposition', 'attachment; filename="'.$filename.'"');
     }

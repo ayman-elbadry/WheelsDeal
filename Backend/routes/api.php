@@ -8,6 +8,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\RentController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\MessageController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -21,52 +22,52 @@ use App\Http\Controllers\MessageController;
 
 
 //! Public Routes
-    // signup
-    Route::post('/signup', [UserController::class, 'signup']);
-    // login
-    Route::post('/login', [UserController::class, 'login']);
-    // list of cars
-    Route::get('/cars', [CarController::class, 'index']);
-    // show a car
-    Route::get('/cars/{id}', [CarController::class, 'show']);
+// signup
+Route::post('/signup', [UserController::class, 'signup']);
+// login
+Route::post('/login', [UserController::class, 'login']);
+// list of cars
+Route::get('/cars', [CarController::class, 'index']);
+// show a car
+Route::get('/cars/{id}', [CarController::class, 'show']);
 
-    //! Admin auth
-    Route::post('/admin/signup', [AdminController::class, 'signup']);
-    Route::post('/admin/login', [AdminController::class, 'login']);
+//! Admin auth
+Route::post('/admin/signup', [AdminController::class, 'signup']);
+Route::post('/admin/login', [AdminController::class, 'login']);
 
-    //! DashBoard =====================================================
-    //? users
-    // list of users
-    Route::get('/users', [UserController::class, 'index']);
+//! DashBoard =====================================================
+//? users
+// list of users
+Route::get('/users', [UserController::class, 'index']);
 
-    // delete a user
-    Route::delete(
-        '/users/{id}',
-        [UserController::class, 'destroy']
-    );
+// delete a user
+Route::delete(
+    '/users/{id}',
+    [UserController::class, 'destroy']
+);
 
-    //? cars
-    // add a car
-    Route::post('/cars', [CarController::class, 'store']);
+//? cars
+// add a car
+Route::post('/cars', [CarController::class, 'store']);
 
-    // update a car
-    Route::put('/cars/{id}', [CarController::class, 'update']);
+// update a car
+Route::put('/cars/{id}', [CarController::class, 'update']);
 
-    // delete car
-    Route::delete('/cars/{id}', [
-        CarController::class, 'destroy'
-    ]);
+// delete car
+Route::delete('/cars/{id}', [
+    CarController::class, 'destroy'
+]);
 
-    //rents
-    Route::resource('/rents', RentController::class);
+//rents
+Route::resource('/rents', RentController::class);
 
-    // download rent facture
-    Route::get('/rents/{id}/download-rent', [RentController::class, 'downloadRent']);
+// download rent facture
+Route::get('/rents/{id}/download-rent', [RentController::class, 'downloadRent']);
 
-    //! Stripe checkout
-    Route::get('/success', [StripeController::class, 'success'])->name('success');
-    Route::post('/checkout/{id}', [StripeController::class, 'checkout']);
-    Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
+//! Stripe checkout
+Route::get('/success', [StripeController::class, 'success'])->name('success');
+Route::post('/checkout/{id}', [StripeController::class, 'checkout']);
+Route::get('/cancel', [StripeController::class, 'cancel'])->name('cancel');
 
 
 

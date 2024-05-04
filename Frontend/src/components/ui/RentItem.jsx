@@ -1,32 +1,30 @@
-import React, { useState } from 'react';
-import { Tr, Td, IconButton,Image } from '@chakra-ui/react';
-import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
-import EditRent from '../form/EditRent';
+import React, { useState } from 'react'
+import { Tr, Td, IconButton, Image } from '@chakra-ui/react'
+import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
+import EditRent from '../form/EditRent'
 
 const RentItem = ({ rent, cars, update, deleteRent }) => {
-
-    
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false)
 
   const handleEditClick = () => {
-    setShowModal(true);
-  };
+    setShowModal(true)
+  }
 
   const handleCloseModal = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
   console.log(rent)
   return (
     <Tr key={rent.id}>
       <Td>
         <Image
-          className="first"
-          objectFit="cover"
-          h={"60px"}
-          w={"60px"}
-          borderRadius="10px"
+          className='first'
+          objectFit='cover'
+          h='60px'
+          w='60px'
+          borderRadius='10px'
           src={`http://localhost:8000/images/${rent.photo}`}
-        ></Image>
+        />
       </Td>
       <Td>{rent.brand}</Td>
       <Td>{rent.model}</Td>
@@ -37,20 +35,20 @@ const RentItem = ({ rent, cars, update, deleteRent }) => {
       <Td>
         <IconButton
           onClick={handleEditClick}
-          bg={""}
-          _hover={{ bg: "blue.400", color: "white" }}
+          bg=''
+          _hover={{ bg: 'blue.400', color: 'white' }}
           mr={1}
-          aria-label="Edit"
+          aria-label='Edit'
           icon={<EditIcon />}
         />
       </Td>
       <Td>
         <IconButton
           onClick={() => deleteRent(rent.id)}
-          bg={""}
-          _hover={{ bg: "red", color: "white" }}
+          bg=''
+          _hover={{ bg: 'red', color: 'white' }}
           ml={1}
-          aria-label="Delete"
+          aria-label='Delete'
           icon={<DeleteIcon />}
         />
       </Td>
@@ -63,7 +61,7 @@ const RentItem = ({ rent, cars, update, deleteRent }) => {
         onClose={handleCloseModal}
       />
     </Tr>
-  );
-};
+  )
+}
 
-export default RentItem;
+export default RentItem
